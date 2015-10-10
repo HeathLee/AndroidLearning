@@ -8,7 +8,8 @@
         android:layout_height="0dp"
         android:id="@+id/msg_list_view"
         android:layout_weight="1"
-        android:divider="#0000"/>
+        android:divider="#0000"
+        android:listSelector="@android:color/transparent"/>
 
     <LinearLayout
         android:layout_width="match_parent"
