@@ -26,6 +26,7 @@ public class MainActivity extends Activity{
                         .beginTransaction();
                 fragmentTransaction.replace(R.id.right_layout,
                         anotherRighrFragment);
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
