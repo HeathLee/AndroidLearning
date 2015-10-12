@@ -22,6 +22,18 @@ public class RightFragment extends Fragment {
         Log.d(TAG, "onAttach");
     }
 
+    /*
+     * API 23修改为 public void onAttach(Context context)，
+     * 当系统版本API < 23时找不到这个方法，所以不会调用onAttach
+     */
+//    @TargetApi(23)
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//        System.out.println("Test");
+//        Log.d(TAG, "onAttach");
+//    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -5,32 +5,23 @@
     android:layout_height="match_parent">
 
     <fragment
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/left_fragment"
-        android:name="com.example.heath.fragmenttest.LeftFragment"
-        android:layout_weight="1"/>
+        android:name="com.example.heath.fragmenttest.LeftFragment"/>
 
-    <!--<fragment-->
+    <!--<FrameLayout-->
         <!--android:layout_width="0dp"-->
         <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/right_fragment"-->
-        <!--android:name="com.example.heath.fragmenttest.RightFragment"-->
-        <!--android:layout_weight="1"/>-->
+        <!--android:layout_weight="1"-->
+        <!--android:id="@+id/right_layout">-->
 
-
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:id="@+id/right_layout">
-
-        <fragment
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/right_fragment"
-            android:name="com.example.heath.fragmenttest.RightFragment"
-            />
-    </FrameLayout>
+        <!--<fragment-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:id="@+id/right_fragment"-->
+            <!--android:name="com.example.heath.fragmenttest.RightFragment"/>-->
+        <!-- -->
+    <!--</FrameLayout>-->
 
 </LinearLayout>
