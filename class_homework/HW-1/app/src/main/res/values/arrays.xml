@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="info">
+        <item>移动</item>
+        <item>软院</item>
+        <item>管理</item>
+        <item>政务</item>
+        <item>环境</item>
+    </string-array>
+</resources>
