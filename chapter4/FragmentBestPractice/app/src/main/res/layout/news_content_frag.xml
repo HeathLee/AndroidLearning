@@ -31,13 +31,13 @@
             android:layout_weight="1"
             android:padding="15dp"
             android:textSize="18sp"/>
-
-        <ImageView
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/spilt_line_vertical"/>
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/spilt_line_vertical"/>
 
 </RelativeLayout>

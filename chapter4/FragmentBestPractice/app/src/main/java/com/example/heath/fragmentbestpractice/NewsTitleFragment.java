@@ -23,6 +23,36 @@ public class NewsTitleFragment extends Fragment
     private NewsAdapter newsAdapter;
     private boolean isTwoPane;
 
+    @Override
+    public void onAttach(Activity context) {
+        super.onAttach(context);
+        newsList = getNews();
+        newsAdapter = new NewsAdapter(context, R.layout.news_item, newsList);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.news_title_frag, container,
+                false);
+        newsTitleListView = (ListView) view.findViewById(R.id
+                .news_title_list_view);
+        newsTitleListView.setAdapter(newsAdapter);
+        newsTitleListView.setOnItemClickListener(this);
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (getActivity().findViewById(R.id.news_content_layout) != null) {
+            isTwoPane = true;
+        } else {
+            isTwoPane = false;
+        }
+    }
+
     private List<News> getNews() {
         List<News> newsList = new ArrayList<>();
         News news = new News();
@@ -57,36 +87,6 @@ public class NewsTitleFragment extends Fragment
             //单页模式
             NewsContentActivity.actionStart(getActivity(), news.getTitle(),
                     news.getContent());
-        }
-    }
-
-    @Override
-    public void onAttach(Activity context) {
-        super.onAttach(context);
-        newsList = getNews();
-        newsAdapter = new NewsAdapter(context, R.layout.news_item, newsList);
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.news_title_frag, container,
-                false);
-        newsTitleListView = (ListView) view.findViewById(R.id
-                .news_title_list_view);
-        newsTitleListView.setAdapter(newsAdapter);
-        newsTitleListView.setOnItemClickListener(this);
-        return view;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        if (getActivity().findViewById(R.id.news_content_layout) != null) {
-            isTwoPane = true;
-        } else {
-            isTwoPane = false;
         }
     }
 }
