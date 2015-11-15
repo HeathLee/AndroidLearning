@@ -27,7 +27,6 @@ public class ForceOfflineReceiver extends BroadcastReceiver {
                 context.startActivity(intent1);
             }
         });
-        //test
         AlertDialog alertDialog = dialogBuilder.create();
         alertDialog.getWindow().setType(WindowManager.LayoutParams
                 .TYPE_SYSTEM_ALERT);
