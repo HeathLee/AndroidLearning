@@ -1,4 +1,4 @@
-package com.example.heath.broadcastbetspractice;
+package com.example.heath.broadcastbestpractice;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.heath.broadcastbetspractice;
+package com.example.heath.broadcastbestpractice;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
