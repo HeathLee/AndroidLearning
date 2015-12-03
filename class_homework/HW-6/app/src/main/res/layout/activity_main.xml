@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:stretchColumns="1" >
+
+    <TableRow>
+        <TextView
+            android:text="Edit File"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:textColor="#FF9C328C"
+            android:layout_span="2"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="File Name:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/file_name"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="File Content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </TableRow>
+
+    <TableRow>
+        <EditText
+            android:minLines="5"
+            android:inputType="textMultiLine"
+            android:id="@+id/file_content"
+            android:layout_width="wrap_content"
+            android:layout_span="2"/>
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/save"
+            android:text="Save File"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:textAllCaps="false"/>
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/read"
+            android:text="Read File"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:textAllCaps="false"/>
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/delete"
+            android:text="Delete File"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:textAllCaps="false"/>
+    </TableRow>
+
+</TableLayout>
