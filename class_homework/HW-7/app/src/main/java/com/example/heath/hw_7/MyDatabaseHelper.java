@@ -2,6 +2,7 @@ package com.example.heath.hw_7;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -20,10 +21,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE = "create table " + TABLE_NAME +
-                " id integer primary key autoincrement, " +
+                "(id integer primary key autoincrement, " +
                 "sid text not null, " +
                 "name text not null, " +
-                "phone text not null;";
+                "phone text not null);";
         db.execSQL(CREATE_TABLE);
     }
 
@@ -70,5 +71,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return rows;
     }
 
-
+    public Cursor query() {
+        SQLiteDatabase db = getReadableDatabase();
+        return db.query(TABLE_NAME, null, null, null, null, null, null);
+    }
 }

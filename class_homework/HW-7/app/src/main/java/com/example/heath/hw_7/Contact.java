@@ -1,12 +1,22 @@
 package com.example.heath.hw_7;
 
+import java.io.Serializable;
+
 /**
  * Created by heath on 15-12-4.
  */
-public class Contact {
+public class Contact implements Serializable {
     private String sid;
     private String name;
     private String phone;
+
+    public Contact() {}
+
+    public Contact(String sid, String name, String phone) {
+        this.sid = sid;
+        this.name = name;
+        this.phone = phone;
+    }
 
     public String getSid() {
         return sid;
