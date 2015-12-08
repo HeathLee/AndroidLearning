@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements
         DeleteContactDialogFragment.DeleteDialogListener,
         UpdateContactDialogFragment.UpdateDialogListener{
 
+    private static final int ADD_CONTACT = 1;
+
     private ListView mContactsListView;
     private List<Map<String, String>> mContactsList;
     private MyDatabaseHelper myDatabaseHelper;
@@ -38,12 +40,13 @@ public class MainActivity extends AppCompatActivity implements
                 .contact_item, new String[]{"sid", "name", "phone"},
                 new int[]{R.id.sid, R.id.name, R.id.phone});
 
+
         mAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddContactActivity
                         .class);
-                startActivity(intent);
+                startActivityForResult(intent, ADD_CONTACT);
             }
         });
 
@@ -101,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements
         super.onResume();
         setData(mContactsList);
         mContactsListView.setAdapter(adapter);
+
     }
 
     private void setData(List<Map<String, String>> mContactsList) {
@@ -113,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements
             mData.put("name", cursor.getString(cursor.getColumnIndex("name")));
             mData.put("phone", cursor.getString(cursor.getColumnIndex
                     ("phone")));
-            mContactsList.add(mData);;
+            mContactsList.add(mData);
         }
     }
 
@@ -133,5 +137,28 @@ public class MainActivity extends AppCompatActivity implements
         map.put("name", contact.getName());
         map.put("phone", contact.getPhone());
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent
+            data) {
+        switch (requestCode) {
+            case ADD_CONTACT:
+                if (resultCode == RESULT_OK) {
+                    HashMap<String, String> mData = new HashMap<>();
+                    String sid = data.getStringExtra("sid");
+                    String name = data.getStringExtra("name");
+                    String phone = data.getStringExtra("phone");
+
+                    mData.put("sid", sid);
+                    mData.put("name", name);
+                    mData.put("phone", phone);
+                    mContactsList.add(mData);
+                    adapter.notifyDataSetChanged();
+                    myDatabaseHelper.insert(new Contact(sid, name, phone));
+                    Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
     }
 }

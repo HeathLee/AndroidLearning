@@ -18,7 +18,6 @@ public class AddContactActivity extends AppCompatActivity {
     private EditText mNameEditText;
     private EditText mPhoneEditText;
     private Button mConfirmButton;
-    private MyDatabaseHelper myDatabaseHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,7 +27,6 @@ public class AddContactActivity extends AppCompatActivity {
         mNameEditText = (EditText) findViewById(R.id.name);
         mPhoneEditText = (EditText) findViewById(R.id.phone);
         mConfirmButton = (Button) findViewById(R.id.confirm);
-        myDatabaseHelper = new MyDatabaseHelper(this);
 
         mConfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,16 +40,12 @@ public class AddContactActivity extends AppCompatActivity {
                     Toast.makeText(AddContactActivity.this, "请填写完整信息", Toast
                             .LENGTH_SHORT).show();
                 } else {
-                    Contact contact = new Contact();
-                    contact.setSid(sid);
-                    contact.setName(name);
-                    contact.setPhone(phone);
-                    myDatabaseHelper.insert(contact);
-                    Toast.makeText(AddContactActivity.this, "添加成功", Toast
-                            .LENGTH_SHORT).show();
                     Intent intent = new Intent(AddContactActivity.this, MainActivity
                             .class);
-                    startActivity(intent);
+                    intent.putExtra("sid", sid);
+                    intent.putExtra("name", name);
+                    intent.putExtra("phone", phone);
+                    setResult(RESULT_OK, intent);
                     finish();
                 }
             }
