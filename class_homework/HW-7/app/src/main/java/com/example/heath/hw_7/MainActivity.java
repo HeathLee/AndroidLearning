@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mAddButton = (Button) findViewById(R.id.add);
         mContactsListView = (ListView) findViewById(R.id.contacts);
         myDatabaseHelper = new MyDatabaseHelper(this);
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements
         adapter = new SimpleAdapter(this, mContactsList, R.layout
                 .contact_item, new String[]{"sid", "name", "phone"},
                 new int[]{R.id.sid, R.id.name, R.id.phone});
+        setData(mContactsList);
+        mContactsListView.setAdapter(adapter);
 
 
         mAddButton.setOnClickListener(new View.OnClickListener() {
@@ -97,14 +100,6 @@ public class MainActivity extends AppCompatActivity implements
                 return true;
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        setData(mContactsList);
-        mContactsListView.setAdapter(adapter);
-
     }
 
     private void setData(List<Map<String, String>> mContactsList) {
