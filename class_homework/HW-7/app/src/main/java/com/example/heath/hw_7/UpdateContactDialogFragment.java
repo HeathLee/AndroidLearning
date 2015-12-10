@@ -6,9 +6,11 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by heath on 15-12-8.
@@ -54,9 +56,14 @@ public class UpdateContactDialogFragment extends DialogFragment {
                         String sid = sidEditText.getText().toString();
                         String name = nameEditText.getText().toString();
                         String phone = phoneEditText.getText().toString();
-
-                        mListener.onConfirmUpdate(new Contact(sid, name,
-                                phone), args.getInt("position"));
+                        if (TextUtils.isEmpty(sid) || TextUtils.isEmpty(name) ||
+                                TextUtils.isEmpty(phone)) {
+                            Toast.makeText(getActivity(), "请填写完整信息", Toast
+                                    .LENGTH_SHORT).show();
+                        } else {
+                            mListener.onConfirmUpdate(new Contact(sid, name,
+                                    phone), args.getInt("position"));
+                        }
                     }
                 })
                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {
