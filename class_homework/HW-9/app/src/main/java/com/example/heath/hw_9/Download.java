@@ -54,6 +54,5 @@ public class Download implements Runnable {
             msg.obj = null;
             handler.sendMessage(msg);
         }
-
     }
 }
