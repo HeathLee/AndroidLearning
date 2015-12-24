@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,14 +41,6 @@ public class MainActivity extends AppCompatActivity {
         mButtonButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                mErrorInfo.setText("");
-//                str = getRandomStr(4);
-//                dialog = new ProgressDialog(MainActivity.this);
-//                dialog.setCancelable(false);
-//                dialog.show();
-//                new Thread(new Download(handler)).start();
-                Log.d("xyz", str);
-                Log.d("xyz", mStrEditText.getText().toString());
                 if (str.equals(mStrEditText.getText().toString())) {
                     mValidateResult.setText("验证码输入正确");
                 } else {
