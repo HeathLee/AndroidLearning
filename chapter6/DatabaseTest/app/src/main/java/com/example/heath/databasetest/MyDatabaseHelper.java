@@ -3,14 +3,13 @@ package com.example.heath.databasetest;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 /**
  * Created by heath on 15-11-27.
  */
 public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String CREATE_BOOK =
-            "create table book (" +
+            "create table Book (" +
                     "id integer primary key autoincrement, " +
                     "author text, " +
                     "price real, " +
@@ -18,7 +17,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                     "name text)";
 
     public static final String CREATE_CATEGORY =
-            "create table book (" +
+            "create table Category (" +
                     "id integer primary key autoincrement, " +
                     "category_name integer, " +
                     "category_code integer)";
@@ -35,7 +34,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_BOOK);
         db.execSQL(CREATE_CATEGORY);
-        Toast.makeText(mContext, "Create succeeded", Toast.LENGTH_LONG).show();
+//        Toast.makeText(mContext, "Create succeeded", Toast.LENGTH_LONG).show();
     }
 
     @Override
